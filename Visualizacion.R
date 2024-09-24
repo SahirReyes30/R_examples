@@ -90,4 +90,20 @@ makeham<-function(A,B,C){
 makeham(.00007,.0005,1.09)
 makeham(A,B,C)
 
+# curva de Ricker
+x<-0:100
+yA<-482*x*exp(-0.045*x)
+yB<-518*x*exp(-0.055*x)
 
+plot(c(x,x),c(yA,yB),xlab="peces",ylab="padres", type="n")
+lines(x, yA, lty=1, col="blue")
+lines(x, yB, lty=2, col="red")
+
+
+
+xp<-sample(0:100,20)
+yAp<- 518*xp*exp(-0.055*xp)
+yAp<-yAp+50*rnorm(20,0,8)
+
+points(xp,yAp)
+?rnorm
