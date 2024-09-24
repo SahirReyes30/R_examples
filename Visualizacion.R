@@ -54,5 +54,40 @@ barplot(VADeaths, beside = TRUE,
         , ylim = c(0, 80))
 title(main = "Death Rates in Virginia", font.main = 4)
 
+#Graficas de funciones matematicas
+z <- seq(-3,3,0.01)
+?dnorm
+fdp<-dnorm(z)
+plot(z,fdp,type="l")
+polygon(c(z[z<=-1],-1),c(fdp[z<=-1],fdp[z==-3]),col="red")
+?polygon
+
+# fdp <-funcion densidad de probabilidad
+# Se crea una funcion que grafique el area bajo la curva normal estandar
+
+area<-function(x=0){
+  z<-seq(-3,3,0.01)
+  fdp<-dnorm(z)
+  plot(z,fdp,type="l")
+  polygon(c(z[z<=x],x),c(fdp[z<=x],fdp[z==-3]),col="red")
+}
+
+area()
+area(2)
+area(-2)         
+
+
+#Funcion de makeham
+X<-1:100
+A<-.00007
+B<-.0005
+C<-10^.04
+mu<-A+B*C^X
+plot(X,mu,type="l")
+makeham<-function(A,B,C){
+  plot(X,A+B*C^X,type="l",main="Funcion de Makeham")
+}
+makeham(.00007,.0005,1.09)
+makeham(A,B,C)
 
 
